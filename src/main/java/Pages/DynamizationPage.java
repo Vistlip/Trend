@@ -61,7 +61,6 @@ public class DynamizationPage {
         return page(DynamizationPage.class);
     }
 
-
     public DynamizationPage clickLayoutPage() {
         $(ByShadow.cssSelector(".button", "#\\36 8668")).click();
         return page(DynamizationPage.class);
