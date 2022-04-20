@@ -1,11 +1,12 @@
 import Pages.AppearancePage;
 import io.qameta.allure.junit4.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static com.codeborne.selenide.Selenide.open;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertTrue;
 
-public class TrendAppearanceDynamization {
+
+public class TrendAppearanceDynamizationTest {
 
     @Test
     @DisplayName("Проверка изменения активности тренда")
@@ -138,7 +139,7 @@ public class TrendAppearanceDynamization {
     }
 
     @Test
-    @DisplayName("Проверка изменеия радиуса скругления")
+    @DisplayName("Проверка изменения радиуса скругления")
     public void checkRounding() throws InterruptedException {
         String page = open(AppearancePage.URL, AppearancePage.class)
                 .clickRounding()
