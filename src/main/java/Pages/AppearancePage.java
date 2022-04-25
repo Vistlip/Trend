@@ -1,6 +1,5 @@
 package Pages;
 
-import com.beust.ah.A;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.selector.ByShadow;
