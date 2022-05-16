@@ -24,7 +24,7 @@ public class CategoriesTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка заливки графика")
     public void checkBackgroundColorTrend() throws InterruptedException {
         String page = open(TrendPage.URL, TrendPage.class)
                 .clickButtonBackgroundColorTrend()
@@ -37,7 +37,7 @@ public class CategoriesTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка интервала")
     public void checkInterval() throws InterruptedException {
         String beginTime= open(TrendPage.URL, TrendPage.class)
                 .clickDataEnd()
@@ -66,7 +66,7 @@ public class CategoriesTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка свойства конец")
     public void checkEndDate() throws InterruptedException {
         String page = open(TrendPage.URL, TrendPage.class)
                 .clickDataEnd()
@@ -85,7 +85,7 @@ public class CategoriesTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка минимальный вид")
     public void checkMinView() throws InterruptedException {
         String page = open(TrendPage.URL, TrendPage.class)
                 .clickMinViewButton()
@@ -93,11 +93,11 @@ public class CategoriesTrendTest {
         String[] arrActivity = page.split(";");
         System.out.println(arrActivity[10]);
         assertEquals(arrActivity[10]," visibility: hidden");
-        Thread.sleep(5000);
+        Thread.sleep(500);
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка титула")
     public void checkTitle() throws InterruptedException {
         String page = open(TrendPage.URL, TrendPage.class)
                 .clickTitle()
@@ -106,11 +106,11 @@ public class CategoriesTrendTest {
                 .checkTitle();
         System.out.println(page);
         assertEquals(page, "Title");
-        Thread.sleep(5000);
+        Thread.sleep(500);
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка кнопки дерева выбора перьев")
     public void checkSelectionTree() throws InterruptedException {
         String page = open(TrendPage.URL, TrendPage.class)
                 .clickSelectionTreeButton()
@@ -118,11 +118,11 @@ public class CategoriesTrendTest {
         String[] arrActivity = page.split(";");
         System.out.println(arrActivity[2]);
         assertEquals(arrActivity[2]," display: none");
-        Thread.sleep(5000);
+        Thread.sleep(500);
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка максимальноого количества перьев")
     public void checkMaxPen() throws InterruptedException {
         String page = open(TrendPage.URL, TrendPage.class)
                 .clickMaxPenInput()
@@ -136,7 +136,7 @@ public class CategoriesTrendTest {
                 .checkMessageWarning();
         System.out.println(page);
         assertEquals(page,"Не все параметры были добавлены в тренд (1 не добавлено) из-за превышения ограничения в (2)");
-        Thread.sleep(5000);
+        Thread.sleep(500);
     }
 
 }

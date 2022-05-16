@@ -196,7 +196,7 @@ public class TrendPage {
     }
 
     public TrendPage inputMaxPen() {
-        $(shadowCss("input", "#\\33 31094")).setValue("2");
+        $(shadowCss("input", "#\\33 31094")).setValue("3");
         return this;
     }
 
@@ -220,7 +220,5 @@ public class TrendPage {
         this.windows.get(1).click();
         return this;
     }
-
-
 
 }
