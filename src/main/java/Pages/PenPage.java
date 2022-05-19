@@ -2,7 +2,6 @@ package Pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.selector.ByShadow;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -21,6 +20,12 @@ public class PenPage {
     private ElementsCollection buttons;
     @FindBy(how = How.XPATH, using = ".//ms-combobox")
     private ElementsCollection comboboxes;
+    @FindBy(how = How.XPATH, using = ".//ms-colorpicker")
+    private ElementsCollection colorButtons;
+    @FindBy(how = How.CLASS_NAME, using = "pcr-result")
+    private ElementsCollection inputColor;
+    @FindBy(how = How.CLASS_NAME, using = "pcr-save")
+    private ElementsCollection saveBackgroundColorButton;
 
     public PenPage windowsClick() {
         this.windows.get(1).click();
@@ -101,7 +106,8 @@ public class PenPage {
 
     public String checkStyleLine() {
         ElementsCollection path = $$(shadowCss("path", "#\\36 4053"));
-        int pathCount = path.size();
+        int pathCount = path.size()-6;
+        System.out.println(pathCount);
         String res = path.get(pathCount).getAttribute("stroke-dasharray");
         return res;
     }
@@ -121,8 +127,112 @@ public class PenPage {
     public String checkStyleLineNo() {
         ElementsCollection path = $$(shadowCss("path", "#\\36 4053"));
         int pathCount = path.size()-6;
-        String res = path.get(pathCount).getAttribute("stroke-dasharray");
+        String res = path.get(pathCount).getAttribute("stroke-opacity");
         return res;
     }
+
+    public PenPage inputLineWidth() {
+        $(shadowCss("input", "#\\36 4619")).setValue("7");
+        return this;
+    }
+
+    public String checkLineWidth() {
+        ElementsCollection path = $$(shadowCss("path", "#\\36 4053"));
+        int pathCount = path.size()-8;
+        System.out.println(pathCount);
+        String res = path.get(pathCount).getAttribute("stroke-width");
+        return res;
+    }
+
+    public PenPage clickButtonPenColor() {
+        this.colorButtons.get(0).click();
+        return this;
+    }
+
+    //Ввод цветового значения
+    public PenPage inputPenColor() {
+        this.inputColor.get(0).setValue("#0000FF");
+        return this;
+    }
+
+    public PenPage clickSavePenColor() {
+        this.saveBackgroundColorButton.get(0).click();
+        return this;
+    }
+
+    public String checkPenColor() {
+        ElementsCollection path = $$(shadowCss("path", "#\\36 4053"));
+        int pathCount = path.size()-6;
+        System.out.println(pathCount);
+        String res = path.get(pathCount).getAttribute("stroke");
+        return res;
+    }
+
+    public PenPage clickDotType() {
+        this.comboboxes.get(2).click();
+        return this;
+    }
+
+    public PenPage clickDotTypeRectangle() {
+        actions().moveToElement(comboboxes.get(2)).sendKeys("Квадрат").perform();
+        actions().moveToElement(comboboxes.get(2)).sendKeys(Keys.ENTER).perform();
+        return this;
+    }
+
+    public String checkDotType() {
+        ElementsCollection path = $$(shadowCss("path", "#\\36 4053"));
+        int pathCount = path.size()-6;
+        System.out.println(pathCount);
+        String res = path.get(pathCount).getAttribute("d");
+        return res;
+    }
+
+    public PenPage clickDotTypeCircle() {
+        actions().moveToElement(comboboxes.get(2)).sendKeys("Круг").perform();
+        actions().moveToElement(comboboxes.get(2)).sendKeys(Keys.ENTER).perform();
+        return this;
+    }
+
+    public PenPage clickDotTypeTriangle() {
+        actions().moveToElement(comboboxes.get(2)).sendKeys("Треугольник").perform();
+        actions().moveToElement(comboboxes.get(2)).sendKeys(Keys.ENTER).perform();
+        return this;
+    }
+
+    public PenPage clickDotTypeDiamond() {
+        actions().moveToElement(comboboxes.get(2)).sendKeys("Ромб").perform();
+        actions().moveToElement(comboboxes.get(2)).sendKeys(Keys.ENTER).perform();
+        return this;
+    }
+
+    public PenPage clickDotTypeCross() {
+        actions().moveToElement(comboboxes.get(2)).sendKeys("Крест").perform();
+        actions().moveToElement(comboboxes.get(2)).sendKeys(Keys.ENTER).perform();
+        return this;
+    }
+
+    public PenPage inputDotSize() {
+        $(shadowCss("input", "#\\32 21004")).setValue("10");
+        return this;
+    }
+
+    public Boolean checkDotSize() {
+        ElementsCollection path = $$(shadowCss("path", "#\\36 4053"));
+        int pathCount = path.size()-8;
+        System.out.println(pathCount);
+        String res = path.get(pathCount).getAttribute("transform");
+        return res.contains("5,0,0");
+    }
+
+    public PenPage clickVisibleAxisY() {
+        this.buttons.get(2).click();
+        return this;
+    }
+
+    public int checkTextElementsWithoutAxisY() {
+        ElementsCollection text = $$(shadowCss("text", "#\\36 4053"));
+        return text.size();
+    }
+
 
 }

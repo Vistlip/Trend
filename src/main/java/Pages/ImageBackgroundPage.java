@@ -2,12 +2,11 @@ package Pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-
-import static com.codeborne.selenide.Selenide.*;
-
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
+import static com.codeborne.selenide.Selenide.actions;
 
 public class ImageBackgroundPage {
     public static final String URL = Urls.ImageBackgroundPageURL;

@@ -2,10 +2,6 @@ package Pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-
-import static com.codeborne.selenide.Selectors.shadowCss;
-import static com.codeborne.selenide.Selenide.*;
-
 import com.codeborne.selenide.selector.ByShadow;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.FindBy;
@@ -13,6 +9,9 @@ import org.openqa.selenium.support.How;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static com.codeborne.selenide.Selectors.shadowCss;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TrendPage {
     public static final String URL = Urls.TrendPageURL;
@@ -196,7 +195,7 @@ public class TrendPage {
     }
 
     public TrendPage inputMaxPen() {
-        $(shadowCss("input", "#\\33 31094")).setValue("3");
+        $(shadowCss("input", "#\\33 31094")).setValue("2");
         return this;
     }
 

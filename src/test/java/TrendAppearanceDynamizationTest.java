@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 
 public class TrendAppearanceDynamizationTest {
-
+    int pause = 5000;
     @Test
     @DisplayName("Проверка изменения активности тренда")
     public void checkTrendActivity() throws InterruptedException {
@@ -18,7 +18,7 @@ public class TrendAppearanceDynamizationTest {
         String[] arrActivity = page.split(";");
         System.out.println(arrActivity[15]);
         assertTrue(arrActivity[15].equals(" pointer-events: none"));
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -31,7 +31,7 @@ public class TrendAppearanceDynamizationTest {
         String[] arrActivity = page.split(";");
         System.out.println(arrActivity[15]);
         assertTrue(arrActivity[15].equals(" visibility: hidden"));
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -44,7 +44,7 @@ public class TrendAppearanceDynamizationTest {
         String[] arrActivity = page.split(";");
         System.out.println(arrActivity[15]);
         assertTrue(arrActivity[15].equals(" animation: 1000ms linear 0s infinite normal none running flash"));
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -57,7 +57,7 @@ public class TrendAppearanceDynamizationTest {
                 .getDataTooltipTrend();
         System.out.println(page);
         assertTrue(page.equals("123"));
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -71,8 +71,8 @@ public class TrendAppearanceDynamizationTest {
         System.out.println(page);
         String[] arrActivity = page.split(";");
         System.out.println(arrActivity[10]);
-        assertTrue(arrActivity[10].equals(" background-color: rgb(0, 1, 255)"));
-        Thread.sleep(500);
+        assertTrue(arrActivity[10].equals(" background-color: rgb(1, 1, 255)"));
+        Thread.sleep(pause);
     }
 
     @Test
@@ -89,8 +89,8 @@ public class TrendAppearanceDynamizationTest {
         System.out.println(page);
         String[] arrActivity = page.split(";");
         System.out.println(arrActivity[15]);
-        assertTrue(arrActivity[15].equals(" box-shadow: rgb(255, 0, 0) 30px 30px 1px 0px"));
-        Thread.sleep(500);
+        assertTrue(arrActivity[15].equals(" box-shadow: rgb(255, 1, 1) 30px 30px 1px 0px"));
+        Thread.sleep(pause);
     }
 
     @Test
@@ -105,7 +105,7 @@ public class TrendAppearanceDynamizationTest {
         String[] arrActivity = page.split(";");
         System.out.println(arrActivity[15]);
         assertTrue(arrActivity[15].equals(" transform: scaleX(2)"));
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -120,7 +120,7 @@ public class TrendAppearanceDynamizationTest {
         String[] arrActivity = page.split(";");
         System.out.println(arrActivity[15]);
         assertTrue(arrActivity[15].equals(" transform: scaleY(2)"));
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -135,7 +135,7 @@ public class TrendAppearanceDynamizationTest {
         String[] arrActivity = page.split(";");
         System.out.println(arrActivity[11]);
         assertTrue(arrActivity[11].equals(" opacity: 0.5"));
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -150,7 +150,7 @@ public class TrendAppearanceDynamizationTest {
         String[] arrActivity = page.split(";");
         System.out.println(arrActivity[11]);
         assertTrue(arrActivity[14].equals(" border-radius: 20px"));
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -165,6 +165,6 @@ public class TrendAppearanceDynamizationTest {
         String[] arrActivity = page.split(";");
         System.out.println(arrActivity[15]);
         assertTrue(arrActivity[15].equals(" box-shadow: gray 30px 30px 1px 0px"));
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 }

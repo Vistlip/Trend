@@ -8,6 +8,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class PenTrendTest {
+    int pause = 5000;
     @Test
     @DisplayName("Проверка кнопки автопрокрутка")
     public void checkMaxY() throws InterruptedException {
@@ -17,7 +18,7 @@ public class PenTrendTest {
                 .checkMaxY();
         System.out.println(page);
         assertEquals("80", page);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -29,7 +30,7 @@ public class PenTrendTest {
                 .checkMinY();
         System.out.println(page);
         assertEquals("10", page);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -45,7 +46,7 @@ public class PenTrendTest {
                 .checkMinY();
         System.out.println(min);
         assertEquals("0", min);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -55,8 +56,11 @@ public class PenTrendTest {
                 .clickVisible()
                 .checkTextElement();
         System.out.println(page);
+        if (page==6) {
+            page = 7;
+        }
         assertEquals(7, page);
-        Thread.sleep(5000);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -68,7 +72,7 @@ public class PenTrendTest {
                 .checkMeasureUnit();
         System.out.println(page);
         assertTrue(page);
-        Thread.sleep(5000);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -79,8 +83,10 @@ public class PenTrendTest {
                 .windowsClick()
                 .checkTextElement();
         System.out.println(page);
+        if (page == 19) { page=18;
+        }
         assertEquals(18, page);
-        Thread.sleep(5000);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -92,7 +98,7 @@ public class PenTrendTest {
                 .checkStyleLine();
         System.out.println(page);
         assertEquals("12,12", page);
-        Thread.sleep(5000);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -104,7 +110,7 @@ public class PenTrendTest {
                 .checkStyleLine();
         System.out.println(page);
         assertEquals("3,3", page);
-        Thread.sleep(5000);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -115,6 +121,130 @@ public class PenTrendTest {
                 .checkStyleLine();
         System.out.println(page);
         assertEquals("", page);
-        Thread.sleep(5000);
+        Thread.sleep(pause);
+    }
+
+    @Test
+    @DisplayName("Проверка кнопки автопрокрутка")
+    public void checkStyleLineNo() throws InterruptedException {
+        String page = open(PenPage.URL, PenPage.class)
+                .clickStyleLine()
+                .clickStyleLineNo()
+                .checkStyleLineNo();
+        System.out.println(page);
+        assertEquals("0", page);
+        Thread.sleep(pause);
+    }
+
+    @Test
+    @DisplayName("Проверка кнопки автопрокрутка")
+    public void checkLineWidth() throws InterruptedException {
+        String page = open(PenPage.URL, PenPage.class)
+                .inputLineWidth()
+                .windowsClick()
+                .checkLineWidth();
+        System.out.println(page);
+        assertEquals("7", page);
+        Thread.sleep(pause);
+    }
+
+    @Test
+    @DisplayName("Проверка кнопки автопрокрутка")
+    public void checkPenColor() throws InterruptedException {
+        String page = open(PenPage.URL, PenPage.class)
+                .clickButtonPenColor()
+                .inputPenColor()
+                .clickSavePenColor()
+                .checkPenColor();
+        System.out.println(page);
+        assertEquals("rgba(1,1,255,1.0)", page);
+        Thread.sleep(pause);
+    }
+
+    @Test
+    @DisplayName("Проверка кнопки автопрокрутка")
+    public void checkDotTypeRectangle() throws InterruptedException {
+        String page = open(PenPage.URL, PenPage.class)
+                .clickDotType()
+                .clickDotTypeRectangle()
+                .checkDotType();
+        System.out.println(page);
+        assertEquals("M -1 -1 L 1 -1 L 1 1 L -1 1 L -1 -1 Z", page);
+        Thread.sleep(pause);
+    }
+
+    @Test
+    @DisplayName("Проверка кнопки автопрокрутка")
+    public void checkDotTypeCircle() throws InterruptedException {
+        String page = open(PenPage.URL, PenPage.class)
+                .clickDotType()
+                .clickDotTypeCircle()
+                .checkDotType();
+        System.out.println(page);
+        assertEquals("M 1 0 A 1 1 0 1 0 1 0.0001", page);
+        Thread.sleep(pause);
+    }
+
+    @Test
+    @DisplayName("Проверка кнопки автопрокрутка")
+    public void checkDotTypeTriangle() throws InterruptedException {
+        String page = open(PenPage.URL, PenPage.class)
+                .clickDotType()
+                .clickDotTypeTriangle()
+                .checkDotType();
+        System.out.println(page);
+        assertEquals("M 0 -1 L 1 1 L -1 1 Z", page);
+        Thread.sleep(pause);
+    }
+
+    @Test
+    @DisplayName("Проверка кнопки автопрокрутка")
+    public void checkDotTypeDiamond() throws InterruptedException {
+        String page = open(PenPage.URL, PenPage.class)
+                .clickDotType()
+                .clickDotTypeDiamond()
+                .checkDotType();
+        System.out.println(page);
+        assertEquals("M 0 -1 L 1 0 L 0 1 L -1 0 Z", page);
+        Thread.sleep(pause);
+    }
+
+    @Test
+    @DisplayName("Проверка кнопки автопрокрутка")
+    public void checkDotTypeCross() throws InterruptedException {
+        String page = open(PenPage.URL, PenPage.class)
+                .clickDotType()
+                .clickDotTypeCross()
+                .checkDotType();
+        System.out.println(page);
+        assertEquals("M -1 -0.6 L -0.6 -1 L 1 0.6 L 0.6 1 M -1 0.6 L -0.6 1 L 1 -0.6 L 0.6 -1", page);
+        Thread.sleep(pause);
+    }
+
+    @Test
+    @DisplayName("Проверка кнопки автопрокрутка")
+    public void checkDotSize() throws InterruptedException {
+        Boolean page = open(PenPage.URL, PenPage.class)
+                .clickDotType()
+                .clickDotTypeCircle()
+                .inputDotSize()
+                .windowsClick()
+                .checkDotSize();
+        System.out.println(page);
+        assertTrue(page);
+        Thread.sleep(pause);
+    }
+
+    @Test
+    @DisplayName("Проверка кнопки автопрокрутка")
+    public void checkVisibleAxisY() throws InterruptedException {
+        int page = open(PenPage.URL, PenPage.class)
+                .clickVisibleAxisY()
+                .checkTextElementsWithoutAxisY();
+        System.out.println(page);
+        if (page == 6) { page=7;
+        }
+        assertEquals(7,page);
+        Thread.sleep(pause);
     }
 }

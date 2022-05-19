@@ -1,14 +1,17 @@
 import Pages.TrendPage;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertEquals;
 
 
 public class CategoriesTrendTest {
+    int pause = 5000;
     @Test
     @DisplayName("Проверка кнопки автопрокрутка")
     public void checkAuto() throws InterruptedException {
@@ -20,7 +23,7 @@ public class CategoriesTrendTest {
                 .checkAutoScroll();
         System.out.println(page);
         assertEquals("Остановить автопрокрутку", page);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -32,8 +35,8 @@ public class CategoriesTrendTest {
                 .clickSaveBackgroundColorTrend()
                 .checkBackgroundColorTrend();
         System.out.println(page);
-        assertEquals("rgba(0,1,255,1.0)", page);
-        Thread.sleep(500);
+        assertEquals("rgba(1,1,255,1.0)", page);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -62,7 +65,7 @@ public class CategoriesTrendTest {
         int min = (int)(difference / (60 * 1000));
         System.out.println(min);
         assertEquals(5, min);
-        Thread.sleep(5000);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -81,7 +84,7 @@ public class CategoriesTrendTest {
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         String str = formatForDateNow.format(date) + ":00";
         assertEquals(str, page);
-        Thread.sleep(5000);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -93,7 +96,7 @@ public class CategoriesTrendTest {
         String[] arrActivity = page.split(";");
         System.out.println(arrActivity[10]);
         assertEquals(arrActivity[10]," visibility: hidden");
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -106,7 +109,7 @@ public class CategoriesTrendTest {
                 .checkTitle();
         System.out.println(page);
         assertEquals(page, "Title");
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -118,7 +121,7 @@ public class CategoriesTrendTest {
         String[] arrActivity = page.split(";");
         System.out.println(arrActivity[2]);
         assertEquals(arrActivity[2]," display: none");
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -136,7 +139,7 @@ public class CategoriesTrendTest {
                 .checkMessageWarning();
         System.out.println(page);
         assertEquals(page,"Не все параметры были добавлены в тренд (1 не добавлено) из-за превышения ограничения в (2)");
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
 }

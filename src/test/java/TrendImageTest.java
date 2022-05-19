@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 
 public class TrendImageTest {
+    int pause = 5000;
     @Test
     @DisplayName("Проверка замостка 'Заполнение' и 1 изображение")
     public void checkChangeImageFirstAndBGFill() throws InterruptedException {
@@ -20,7 +21,7 @@ public class TrendImageTest {
         assertEquals(" background-repeat: no-repeat", arrActivity[15]);
         assertEquals(" background-size: 100% 100%", arrActivity[16]);
         assertEquals(" background-image: url(\"resources/1.jpg\")", arrActivity[17]);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -35,7 +36,7 @@ public class TrendImageTest {
         assertEquals(" background-repeat: no-repeat", arrActivity[15]);
         assertEquals(" background-size: 100% 100%", arrActivity[16]);
         assertEquals(" background-image: url(\"resources/2.jpg\")", arrActivity[17]);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -50,7 +51,7 @@ public class TrendImageTest {
         assertEquals(" background-repeat: no-repeat", arrActivity[15]);
         assertEquals(" background-size: 100% 100%", arrActivity[16]);
         assertEquals(" background-image: url(\"resources/3.jpg\")", arrActivity[17]);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -68,7 +69,7 @@ public class TrendImageTest {
         assertEquals(" background-repeat: no-repeat", arrActivity[15]);
         assertEquals(" background-size: 100% 100%", arrActivity[16]);
         assertEquals(" background-image: url(\"resources/1.jpg\")", arrActivity[17]);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -85,7 +86,7 @@ public class TrendImageTest {
         assertEquals(" background-repeat: no-repeat", arrActivity[15]);
         assertEquals(" background-size: 100% 100%", arrActivity[16]);
         assertEquals(" background-image: url(\"resources/2.jpg\")", arrActivity[17]);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -102,7 +103,7 @@ public class TrendImageTest {
         assertEquals(" background-repeat: no-repeat", arrActivity[15]);
         assertEquals(" background-size: 100% 100%", arrActivity[16]);
         assertEquals(" background-image: url(\"resources/3.jpg\")", arrActivity[17]);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -119,7 +120,7 @@ public class TrendImageTest {
         String[] arrActivity = page.split(";");
         assertEquals(" background-repeat: repeat", arrActivity[15]);
         assertEquals(" background-image: url(\"resources/1.jpg\")", arrActivity[16]);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -135,7 +136,7 @@ public class TrendImageTest {
         String[] arrActivity = page.split(";");
         assertEquals(" background-repeat: repeat", arrActivity[15]);
         assertEquals(" background-image: url(\"resources/2.jpg\")", arrActivity[16]);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -151,7 +152,7 @@ public class TrendImageTest {
         String[] arrActivity = page.split(";");
         assertEquals(" background-repeat: repeat", arrActivity[15]);
         assertEquals(" background-image: url(\"resources/3.jpg\")", arrActivity[16]);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -169,7 +170,7 @@ public class TrendImageTest {
         assertEquals(" background-repeat: no-repeat", arrActivity[15]);
         assertEquals(" background-image: url(\"resources/1.jpg\")", arrActivity[16]);
         assertEquals(" background-position: center center", arrActivity[17]);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -186,7 +187,7 @@ public class TrendImageTest {
         assertEquals(" background-repeat: no-repeat", arrActivity[15]);
         assertEquals(" background-image: url(\"resources/2.jpg\")", arrActivity[16]);
         assertEquals(" background-position: center center", arrActivity[17]);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 
     @Test
@@ -203,6 +204,6 @@ public class TrendImageTest {
         assertEquals(" background-repeat: no-repeat", arrActivity[15]);
         assertEquals(" background-image: url(\"resources/3.jpg\")", arrActivity[16]);
         assertEquals(" background-position: center center", arrActivity[17]);
-        Thread.sleep(500);
+        Thread.sleep(pause);
     }
 }
