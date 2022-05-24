@@ -69,9 +69,16 @@ public class FormatAxisYPage {
         return this;
     }
 
+    public FormatAxisYPage clickFormatF() {
+        actions().moveToElement(comboboxes.get(0)).sendKeys("f").perform();
+        actions().moveToElement(comboboxes.get(0)).sendKeys(Keys.ENTER).perform();
+        return this;
+    }
+
     public int checkDecimalPlaces() {
         ElementsCollection td = $$(shadowCss("td", "#\\32 06251", "#legend"));
         String[] splitter = td.get(2).getText().split("\\.");
+        System.out.println(splitter[1]);
         int i = splitter[1].length();
         return i;
     }
