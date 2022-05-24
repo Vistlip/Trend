@@ -10,8 +10,8 @@ import org.openqa.selenium.support.How;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
 
-public class DynamizationPage {
-    public static final String URL = Urls.DynamizationPageURL;
+public class CategoriesPage {
+    public static final String URL = Urls.CategoriesPageURL;
 
     @FindBy(how = How.XPATH, using = ".//ms-togglebutton")
     private ElementsCollection buttons;
@@ -19,56 +19,56 @@ public class DynamizationPage {
     private SelenideElement CategoriesText;
 
 
-    public DynamizationPage(){}
+    public void DynamizationPage(){}
     //Селектор кнопки на главное окно
-    public DynamizationPage clickMainPage() {
+    public CategoriesPage clickMainPage() {
         $(ByShadow.cssSelector(".button", "#\\36 0443")).click();
-        return page(DynamizationPage.class);
+        return page(CategoriesPage.class);
     }
     //Селектор кнопки Внешний вид
-    public DynamizationPage clickAppearancePage() {
+    public CategoriesPage clickAppearancePage() {
         $(ByShadow.cssSelector(".button", "#\\35 9470")).click();
-        return page(DynamizationPage.class);
+        return page(CategoriesPage.class);
     }
     //Селектор кнопки График
-    public DynamizationPage clickGraphPage() {
+    public CategoriesPage clickGraphPage() {
         $(ByShadow.cssSelector(".button", "#\\36 2478")).click();
-        return page(DynamizationPage.class);
+        return page(CategoriesPage.class);
     }
     //Селектор кнопки Текст
-    public DynamizationPage clickTextPage() {
+    public CategoriesPage clickTextPage() {
         $(ByShadow.cssSelector(".button", "#\\37 5741")).click();
-        return page(DynamizationPage.class);
+        return page(CategoriesPage.class);
     }
 
-    public DynamizationPage clickAxisYPage() {
+    public CategoriesPage clickAxisYPage() {
         $(ByShadow.cssSelector(".button", "#\\37 2795")).click();
-        return page(DynamizationPage.class);
+        return page(CategoriesPage.class);
     }
 
-    public DynamizationPage clickKeyboardPage() {
+    public CategoriesPage clickKeyboardPage() {
         $(ByShadow.cssSelector(".button", "#\\32 69732")).click();
-        return page(DynamizationPage.class);
+        return page(CategoriesPage.class);
     }
 
-    public DynamizationPage clickCursorPage() {
+    public CategoriesPage clickCursorPage() {
         $(ByShadow.cssSelector(".button", "#\\37 1565")).click();
-        return page(DynamizationPage.class);
+        return page(CategoriesPage.class);
     }
 
-    public DynamizationPage clickTransformationPage() {
+    public CategoriesPage clickTransformationPage() {
         $(ByShadow.cssSelector(".button", "#\\32 69835")).click();
-        return page(DynamizationPage.class);
+        return page(CategoriesPage.class);
     }
 
-    public DynamizationPage clickLayoutPage() {
+    public CategoriesPage clickLayoutPage() {
         $(ByShadow.cssSelector(".button", "#\\36 8668")).click();
-        return page(DynamizationPage.class);
+        return page(CategoriesPage.class);
     }
 
 
 
-    public DynamizationPage checkVisibleCategoriesText () {
+    public CategoriesPage checkVisibleCategoriesText () {
         this.CategoriesText.shouldBe(Condition.visible);
         return this;
     }

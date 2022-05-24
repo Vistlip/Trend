@@ -13,8 +13,8 @@ import java.util.Date;
 import static com.codeborne.selenide.Selectors.shadowCss;
 import static com.codeborne.selenide.Selenide.*;
 
-public class TrendPage {
-    public static final String URL = Urls.TrendPageURL;
+public class CategoryTrendPage {
+    public static final String URL = Urls.CategoryTrendPageURL;
 
     @FindBy(how = How.XPATH, using = ".//ms-trend")
     private SelenideElement trend;
@@ -45,15 +45,15 @@ public class TrendPage {
 
 
     //Селекоторы кнопок
-    public TrendPage clickAutoscrollButton() {
+    public CategoryTrendPage clickAutoscrollButton() {
         this.buttons.get(0).click();
         return this;
     }
-    public TrendPage clickMinViewButton() {
+    public CategoryTrendPage clickMinViewButton() {
         $(ByShadow.cssSelector(".button", "#\\36 2264")).click();
-        return page(TrendPage.class);
+        return page(CategoryTrendPage.class);
     }
-    public TrendPage clickSelectionTreeButton() {
+    public CategoryTrendPage clickSelectionTreeButton() {
         this.buttons.get(2).click();
         return this;
     }
@@ -63,29 +63,29 @@ public class TrendPage {
         return div.get(2).getAttribute("style");
     }
 
-    public TrendPage clickButtonBackgroundColorTrend() {
+    public CategoryTrendPage clickButtonBackgroundColorTrend() {
         this.colorButtons.get(0).click();
         return this;
     }
 
     //Ввод цветового значения
-    public TrendPage inputColorBackgroundTrend() {
+    public CategoryTrendPage inputColorBackgroundTrend() {
         this.inputColor.get(0).setValue("#0000FF");
         return this;
     }
 
-    public TrendPage clickSaveBackgroundColorTrend() {
+    public CategoryTrendPage clickSaveBackgroundColorTrend() {
         this.saveBackgroundColorButton.get(0).click();
         return this;
     }
 
 
-    public TrendPage clickInterval() {
+    public CategoryTrendPage clickInterval() {
         $(ByShadow.cssSelector("input", "#\\33 28002")).click();
         return this;
     }
 
-    public TrendPage inputInterval() {
+    public CategoryTrendPage inputInterval() {
         actions().moveToElement(interval.get(0)).sendKeys("5").perform();
         actions().moveToElement(interval.get(0)).sendKeys(Keys.ENTER).perform();
         return this;
@@ -102,12 +102,12 @@ public class TrendPage {
         return div.get(0).getAttribute("fill");
     }
 
-    public TrendPage clickDataEnd() {
+    public CategoryTrendPage clickDataEnd() {
         this.dataEnd.get(0).click();
         return this;
     }
 
-    public TrendPage deleteDataEnd() {
+    public CategoryTrendPage deleteDataEnd() {
         actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
         actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
         actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
@@ -124,7 +124,7 @@ public class TrendPage {
         return this;
     }
 
-    public TrendPage inputDataEnd() {
+    public CategoryTrendPage inputDataEnd() {
         Date date = new Date();
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("dd.MM.yyyy HH.mm");
         String str = formatForDateNow.format(date);
@@ -150,12 +150,12 @@ public class TrendPage {
         return div.get(0).getAttribute("style");
     }
 
-    public TrendPage clickTitle() {
+    public CategoryTrendPage clickTitle() {
         $(ByShadow.cssSelector("input", "#\\36 2386")).click();
         return this;
     }
 
-    public TrendPage inputTitle() {
+    public CategoryTrendPage inputTitle() {
         $(ByShadow.cssSelector("input", "#\\36 2386")).setValue("Title");
         return this;
     }
@@ -166,45 +166,45 @@ public class TrendPage {
         return text.get(num).getText();
     }
 
-    public TrendPage clickTrendTreePen() {
+    public CategoryTrendPage clickTrendTreePen() {
         ElementsCollection div = $$(shadowCss("div", "#\\36 2076", "#toolbar"));
         div.get(2).click();
         return this;
     }
 
-    public TrendPage clickCheckboxRandom() {
+    public CategoryTrendPage clickCheckboxRandom() {
         ElementsCollection input = $$(shadowCss("input", "ms-tree"));
         input.get(3).click();
         return this;
     }
 
-    public TrendPage clickCheckboxNotArchivePen() {
+    public CategoryTrendPage clickCheckboxNotArchivePen() {
         ElementsCollection input = $$(shadowCss("input", "ms-tree"));
         input.get(4).click();
         return this;
     }
 
-    public TrendPage clickOkTreeTrendPen() {
+    public CategoryTrendPage clickOkTreeTrendPen() {
         this.buttonsPopup.get(0).click();
         return this;
     }
 
-    public TrendPage clickMaxPenInput() {
+    public CategoryTrendPage clickMaxPenInput() {
         $(shadowCss("input", "#\\33 31094")).click();
         return this;
     }
 
-    public TrendPage inputMaxPen() {
+    public CategoryTrendPage inputMaxPen() {
         $(shadowCss("input", "#\\33 31094")).setValue("2");
         return this;
     }
 
-    public TrendPage clickInfo() {
+    public CategoryTrendPage clickInfo() {
         this.openInfo.click();
         return this;
     }
 
-    public TrendPage clickWarningTitle() {
+    public CategoryTrendPage clickWarningTitle() {
         this.openTitle.click();
         return this;
     }
@@ -215,7 +215,7 @@ public class TrendPage {
 
 
 
-    public TrendPage windowsClick() {
+    public CategoryTrendPage windowsClick() {
         this.windows.get(1).click();
         return this;
     }

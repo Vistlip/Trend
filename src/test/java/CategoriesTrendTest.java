@@ -1,4 +1,4 @@
-import Pages.TrendPage;
+import Pages.CategoryTrendPage;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ public class CategoriesTrendTest {
     @Test
     @DisplayName("Проверка кнопки автопрокрутка")
     public void checkAuto() throws InterruptedException {
-        String page = open(TrendPage.URL, TrendPage.class)
+        String page = open(CategoryTrendPage.URL, CategoryTrendPage.class)
                 .clickAutoscrollButton()
                 .clickAutoscrollButton()
                 //я хз что с кнопкой но тут приходится 2 раза тыкать.
@@ -29,7 +29,7 @@ public class CategoriesTrendTest {
     @Test
     @DisplayName("Проверка заливки графика")
     public void checkBackgroundColorTrend() throws InterruptedException {
-        String page = open(TrendPage.URL, TrendPage.class)
+        String page = open(CategoryTrendPage.URL, CategoryTrendPage.class)
                 .clickButtonBackgroundColorTrend()
                 .inputColorBackgroundTrend()
                 .clickSaveBackgroundColorTrend()
@@ -42,7 +42,7 @@ public class CategoriesTrendTest {
     @Test
     @DisplayName("Проверка интервала")
     public void checkInterval() throws InterruptedException {
-        String beginTime= open(TrendPage.URL, TrendPage.class)
+        String beginTime= open(CategoryTrendPage.URL, CategoryTrendPage.class)
                 .clickDataEnd()
                 .deleteDataEnd()
                 .inputDataEnd()
@@ -50,7 +50,7 @@ public class CategoriesTrendTest {
                 .inputInterval()
                 .clickDataEnd()
                 .checkBeginTime();
-        String endTime = page(TrendPage.class)
+        String endTime = page(CategoryTrendPage.class)
                 .checkEndTime();
         SimpleDateFormat formatForDate = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
         Date dateOne = null;
@@ -71,7 +71,7 @@ public class CategoriesTrendTest {
     @Test
     @DisplayName("Проверка свойства конец")
     public void checkEndDate() throws InterruptedException {
-        String page = open(TrendPage.URL, TrendPage.class)
+        String page = open(CategoryTrendPage.URL, CategoryTrendPage.class)
                 .clickDataEnd()
                 .deleteDataEnd()
                 .inputDataEnd()
@@ -90,7 +90,7 @@ public class CategoriesTrendTest {
     @Test
     @DisplayName("Проверка минимальный вид")
     public void checkMinView() throws InterruptedException {
-        String page = open(TrendPage.URL, TrendPage.class)
+        String page = open(CategoryTrendPage.URL, CategoryTrendPage.class)
                 .clickMinViewButton()
                 .checkTrendToolbar();
         String[] arrActivity = page.split(";");
@@ -102,7 +102,7 @@ public class CategoriesTrendTest {
     @Test
     @DisplayName("Проверка титула")
     public void checkTitle() throws InterruptedException {
-        String page = open(TrendPage.URL, TrendPage.class)
+        String page = open(CategoryTrendPage.URL, CategoryTrendPage.class)
                 .clickTitle()
                 .inputTitle()
                 .windowsClick()
@@ -115,7 +115,7 @@ public class CategoriesTrendTest {
     @Test
     @DisplayName("Проверка кнопки дерева выбора перьев")
     public void checkSelectionTree() throws InterruptedException {
-        String page = open(TrendPage.URL, TrendPage.class)
+        String page = open(CategoryTrendPage.URL, CategoryTrendPage.class)
                 .clickSelectionTreeButton()
                 .checkSelectionTreeButton();
         String[] arrActivity = page.split(";");
@@ -127,7 +127,7 @@ public class CategoriesTrendTest {
     @Test
     @DisplayName("Проверка максимальноого количества перьев")
     public void checkMaxPen() throws InterruptedException {
-        String page = open(TrendPage.URL, TrendPage.class)
+        String page = open(CategoryTrendPage.URL, CategoryTrendPage.class)
                 .clickMaxPenInput()
                 .inputMaxPen()
                 .clickTrendTreePen()

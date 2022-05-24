@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 public class PenTrendTest {
     int pause = 5000;
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка максимального значения оси Y")
     public void checkMaxY() throws InterruptedException {
         String page = open(PenPage.URL, PenPage.class)
                 .inputMaxY()
@@ -22,7 +22,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка минимального значения оси Y")
     public void checkMinY() throws InterruptedException {
         String page = open(PenPage.URL, PenPage.class)
                 .inputMinY()
@@ -34,7 +34,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка кнопки автомасштаба")
     public void checkAutoScale() throws InterruptedException {
         PenPage page = open(PenPage.URL, PenPage.class)
                 .clickAutoScale();
@@ -50,7 +50,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка кнопки видимости")
     public void checkVisible() throws InterruptedException {
         int page = open(PenPage.URL, PenPage.class)
                 .clickVisible()
@@ -64,7 +64,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка единицы измерения")
     public void checkMeasureUnit() throws InterruptedException {
         Boolean page = open(PenPage.URL, PenPage.class)
                 .inputMeasureUnit()
@@ -76,7 +76,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка количества разделителей по оси Y")
     public void checkDivisionsY() throws InterruptedException {
         int page = open(PenPage.URL, PenPage.class)
                 .inputDivisionsY()
@@ -90,7 +90,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка стиля линии: пунктир")
     public void checkStyleLineStipple() throws InterruptedException {
         String page = open(PenPage.URL, PenPage.class)
                 .clickStyleLine()
@@ -102,7 +102,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка стиля линии: точки")
     public void checkStyleLineDot() throws InterruptedException {
         String page = open(PenPage.URL, PenPage.class)
                 .clickStyleLine()
@@ -114,7 +114,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка стиля линии: линия")
     public void checkStyleLineContinuous() throws InterruptedException {
         String page = open(PenPage.URL, PenPage.class)
                 .clickStyleLine()
@@ -125,7 +125,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка стиля линии: нет")
     public void checkStyleLineNo() throws InterruptedException {
         String page = open(PenPage.URL, PenPage.class)
                 .clickStyleLine()
@@ -137,7 +137,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка толщины пера")
     public void checkLineWidth() throws InterruptedException {
         String page = open(PenPage.URL, PenPage.class)
                 .inputLineWidth()
@@ -149,7 +149,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка цвета пера")
     public void checkPenColor() throws InterruptedException {
         String page = open(PenPage.URL, PenPage.class)
                 .clickButtonPenColor()
@@ -162,7 +162,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка тип точек: квадрат")
     public void checkDotTypeRectangle() throws InterruptedException {
         String page = open(PenPage.URL, PenPage.class)
                 .clickDotType()
@@ -174,7 +174,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка тип точек: круг")
     public void checkDotTypeCircle() throws InterruptedException {
         String page = open(PenPage.URL, PenPage.class)
                 .clickDotType()
@@ -186,7 +186,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка тип точек: треугольник")
     public void checkDotTypeTriangle() throws InterruptedException {
         String page = open(PenPage.URL, PenPage.class)
                 .clickDotType()
@@ -198,7 +198,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка тип точек: ромб")
     public void checkDotTypeDiamond() throws InterruptedException {
         String page = open(PenPage.URL, PenPage.class)
                 .clickDotType()
@@ -210,7 +210,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка тип точек: крест")
     public void checkDotTypeCross() throws InterruptedException {
         String page = open(PenPage.URL, PenPage.class)
                 .clickDotType()
@@ -222,7 +222,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка размера точек")
     public void checkDotSize() throws InterruptedException {
         Boolean page = open(PenPage.URL, PenPage.class)
                 .clickDotType()
@@ -236,7 +236,7 @@ public class PenTrendTest {
     }
 
     @Test
-    @DisplayName("Проверка кнопки автопрокрутка")
+    @DisplayName("Проверка видимости оси Y")
     public void checkVisibleAxisY() throws InterruptedException {
         int page = open(PenPage.URL, PenPage.class)
                 .clickVisibleAxisY()
@@ -247,4 +247,5 @@ public class PenTrendTest {
         assertEquals(7,page);
         Thread.sleep(pause);
     }
+
 }
