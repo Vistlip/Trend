@@ -52,6 +52,7 @@ public class FormatAxisYTest {
     @DisplayName("Проверка количества знаков после запятой")
     public void checkDecimalPlaces() throws InterruptedException {
         int page = open(FormatAxisYPage.URL, FormatAxisYPage.class)
+                .clickFormat()
                 .clickFormatF()
                 .inputDecimalPlaces()
                 .windowsClick()

@@ -42,19 +42,24 @@ public class CategoriesTrendTest {
     @Test
     @DisplayName("Проверка интервала")
     public void checkInterval() throws InterruptedException {
-        String beginTime= open(CategoryTrendPage.URL, CategoryTrendPage.class)
+        int textSize= open(CategoryTrendPage.URL, CategoryTrendPage.class)
+                .clickAutoscrollButton()
                 .clickDataEnd()
                 .deleteDataEnd()
                 .inputDataEnd()
                 .clickInterval()
                 .inputInterval()
-                .clickDataEnd()
+                .windowsClick()
+                .checkText();
+        System.out.println(textSize);
+        String beginTime = page(CategoryTrendPage.class)
                 .checkBeginTime();
         String endTime = page(CategoryTrendPage.class)
                 .checkEndTime();
         SimpleDateFormat formatForDate = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
         Date dateOne = null;
         Date dateTwo = null;
+        System.out.println(beginTime + "   " + endTime);
         try {
             dateOne = formatForDate.parse(beginTime);
             dateTwo = formatForDate.parse(endTime);

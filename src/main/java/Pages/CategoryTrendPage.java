@@ -131,8 +131,12 @@ public class CategoryTrendPage {
         System.out.println(str);
         actions().moveToElement(dataEnd.get(0)).sendKeys(str).perform();
         actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.ENTER).perform();
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.ENTER).perform();
         return this;
+    }
+
+    public int checkText() {
+        ElementsCollection text = $$(shadowCss("text", "#\\36 2076"));
+        return text.size();
     }
 
     public String checkBeginTime() {
