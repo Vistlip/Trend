@@ -10,4 +10,5 @@ public class Urls {
     public static final String FormatAxisY = MainPageURL + "?206143";
     public static final String TextTrendURL = MainPageURL + "?75427";
     public static final String AxisYURL = MainPageURL + "?72698";
+    public static final String AutoCreateAxisDTURL = MainPageURL + "?280239";
 }

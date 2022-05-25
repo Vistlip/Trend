@@ -31,7 +31,7 @@ public class CategoryAxisYTest {
     }
 
     @Test
-    @DisplayName("Проверка толщины делений оси Y")
+    @DisplayName("Проверка отступа делений")
     public void checkRightOffset() throws InterruptedException {
         String page = open(AxisYPage.URL, AxisYPage.class)
                 .inputRightOffset()
@@ -39,6 +39,43 @@ public class CategoryAxisYTest {
                 .checkRightOffset();
         System.out.println(page);
         assertEquals("-8", page);
+        Thread.sleep(pause);
+    }
+
+    @Test
+    @DisplayName("Проверка толщины делений оси Y")
+    public void checkThicknessAxis() throws InterruptedException {
+        String page = open(AxisYPage.URL, AxisYPage.class)
+                .inputThicknessAxis()
+                .windowsClick()
+                .checkThicknessAxis();
+        System.out.println(page);
+        assertEquals("7", page);
+        Thread.sleep(pause);
+    }
+
+    @Test
+    @DisplayName("Проверка цвета делений оси Y")
+    public void checkColorAxis() throws InterruptedException {
+        String page = open(AxisYPage.URL, AxisYPage.class)
+                .clickButtonAxisColor()
+                .inputColorAxis()
+                .clickSaveAxisColor()
+                .checkColorAxis();
+        System.out.println(page);
+        assertEquals("rgba(1,1,255,1.0)", page);
+        Thread.sleep(pause);
+    }
+
+    @Test
+    @DisplayName("Проверка длины делений оси Y")
+    public void checkLengthAxis() throws InterruptedException {
+        String page = open(AxisYPage.URL, AxisYPage.class)
+                .inputLengthAxis()
+                .windowsClick()
+                .checkLengthAxis();
+        System.out.println(page);
+        assertEquals("108", page);
         Thread.sleep(pause);
     }
 }
