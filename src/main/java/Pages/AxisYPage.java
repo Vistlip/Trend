@@ -1,5 +1,6 @@
 package Pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +12,10 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class AxisYPage {
     public static final String URL = Urls.AxisYURL;
+    String thicknessDivisions = "8";
+    String labelY = "Подпись";
+    String rightOffset = "7";
+    String thicknessAxis = "9";
     @FindBy(how = How.XPATH, using = ".//ms-trend")
     private SelenideElement trend;
     @FindBy(how = How.XPATH, using = ".//ms-window")
@@ -21,6 +26,7 @@ public class AxisYPage {
     private ElementsCollection inputColor;
     @FindBy(how = How.CLASS_NAME, using = "pcr-save")
     private ElementsCollection saveBackgroundColorButton;
+    String trendShadowHost = "#\\37 3956";
 
     public AxisYPage windowsClick() {
         this.windows.get(1).click();
@@ -28,48 +34,47 @@ public class AxisYPage {
     }
 
     public AxisYPage inputThicknessDivisions() {
-        $(shadowCss("input", "#\\37 4230")).setValue("8");
+        $(shadowCss("input", "#\\37 4230")).setValue(thicknessDivisions);
         return this;
     }
 
-    public String checkThicknessDivisions() {
-        ElementsCollection path = $$(shadowCss("path", "#\\37 3956"));
-        String res = path.get(30).getAttribute("stroke-width");
-        return res;
+    public AxisYPage checkThicknessDivisions() {
+        ElementsCollection path = $$(shadowCss("path", trendShadowHost));
+        path.get(30).shouldHave(Condition.attribute("stroke-width", thicknessDivisions));
+        return this;
     }
 
     public AxisYPage inputLabelY() {
-        $(shadowCss("input", "#\\37 4244")).setValue("Подпись");
+        $(shadowCss("input", "#\\37 4244")).setValue(labelY);
         return this;
     }
 
-    public String checkLabelY() {
-        ElementsCollection path = $$(shadowCss("text", "#\\37 3956"));
-        String res = path.get(0).getText();
-        return res;
+    public AxisYPage checkLabelY() {
+        ElementsCollection path = $$(shadowCss("text", trendShadowHost));
+        path.get(0).shouldHave(Condition.text(labelY));
+        return this;
     }
 
     public AxisYPage inputRightOffset() {
-        $(shadowCss("input", "#\\37 4258")).setValue("8");
+        $(shadowCss("input", "#\\37 4258")).setValue(rightOffset);
         return this;
     }
 
-    public String checkRightOffset() {
-        ElementsCollection path = $$(shadowCss("tspan", "#\\37 3956"));
-        String res = path.get(1).getAttribute("x");
-        return res;
+    public AxisYPage checkRightOffset() {
+        ElementsCollection path = $$(shadowCss("tspan", trendShadowHost));
+        path.get(1).shouldHave(Condition.attribute("x", "-" + rightOffset));
+        return this;
     }
 
     public AxisYPage inputThicknessAxis() {
-        $(shadowCss("input", "#\\37 4272")).setValue("7");
+        $(shadowCss("input", "#\\37 4272")).setValue(thicknessAxis);
         return this;
     }
 
-    public String checkThicknessAxis() {
-        ElementsCollection path = $$(shadowCss("path", "#\\37 3956"));
-        System.out.println(path.size());
-        String res = path.get(23).getAttribute("stroke-width");
-        return res;
+    public AxisYPage checkThicknessAxis() {
+        ElementsCollection path = $$(shadowCss("path", trendShadowHost));
+        path.get(23).shouldHave(Condition.attribute("stroke-width", thicknessAxis));
+        return this;
     }
 
     public AxisYPage clickButtonAxisColor() {
@@ -88,10 +93,10 @@ public class AxisYPage {
         return this;
     }
 
-    public String checkColorAxis() {
-        ElementsCollection path = $$(shadowCss("path", "#\\37 3956"));
-        String res = path.get(30).getAttribute("stroke");
-        return res;
+    public AxisYPage checkColorAxis() {
+        ElementsCollection path = $$(shadowCss("path", trendShadowHost));
+        path.get(30).shouldHave(Condition.attribute("stroke", "rgba(1,1,255,1.0)"));
+        return this;
     }
 
     public AxisYPage inputLengthAxis() {
@@ -100,7 +105,7 @@ public class AxisYPage {
     }
 
     public String checkLengthAxis() {
-        ElementsCollection path = $$(shadowCss("path", "#\\37 3956"));
+        ElementsCollection path = $$(shadowCss("path", trendShadowHost));
         String[] splitter = path.get(30).getAttribute("d").split(" ");
         System.out.println(path.get(30).getAttribute("d"));
         return splitter[4];

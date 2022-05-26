@@ -44,6 +44,7 @@ public class CategoryTrendPage {
     private SelenideElement openTitle;
     @FindBy(how = How.CLASS_NAME, using = "body")
     private SelenideElement messageWarning;
+    String trendShadowHost = "#\\36 2076";
 
 
     //Селекоторы кнопок
@@ -61,7 +62,7 @@ public class CategoryTrendPage {
     }
 
     public String checkSelectionTreeButton() {
-        ElementsCollection div = $$(shadowCss("div", "#\\36 2076", "#toolbar"));
+        ElementsCollection div = $$(shadowCss("div", trendShadowHost, "#toolbar"));
         return div.get(2).getAttribute("style");
     }
 
@@ -82,14 +83,14 @@ public class CategoryTrendPage {
     }
 
     public CategoryTrendPage checkAutoScroll() {
-        ElementsCollection div = $$(shadowCss("div", "#\\36 2076", "#toolbar"));
+        ElementsCollection div = $$(shadowCss("div", trendShadowHost, "#toolbar"));
         div.get(1).shouldHave(Condition.attributeMatching("tooltip", "Остановить автопрокрутку"));
         return this;
     }
 
 
     public CategoryTrendPage checkBackgroundColorTrend() {
-        ElementsCollection div = $$(shadowCss("path", "#\\36 2076"));
+        ElementsCollection div = $$(shadowCss("path", trendShadowHost));
         div.get(0).shouldHave(Condition.attribute("fill", "rgba(1,1,255,1.0)"));
         return this;
     }
@@ -107,7 +108,7 @@ public class CategoryTrendPage {
     public String checkBeginTime() {
         Date date = new Date();
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
-        ElementsCollection text = $$(shadowCss("text", "#\\36 2076"));
+        ElementsCollection text = $$(shadowCss("text", trendShadowHost));
         return text.get(6).getText() + ";" + text.get(7).getText();
     }
 
@@ -115,13 +116,13 @@ public class CategoryTrendPage {
         Date date = new Date();
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         String str = formatForDateNow.format(date);
-        ElementsCollection text = $$(shadowCss("text", "#\\36 2076"));
+        ElementsCollection text = $$(shadowCss("text", trendShadowHost));
         text.get(7).shouldHave(Condition.text(str+":00"));
         return this;
     }
 
     public String checkTrendToolbar() {
-        ElementsCollection div = $$(shadowCss("ms-toolbar", "#\\36 2076"));
+        ElementsCollection div = $$(shadowCss("ms-toolbar", trendShadowHost));
         return div.get(0).getAttribute("style");
 
     }
@@ -137,15 +138,14 @@ public class CategoryTrendPage {
     }
 
     public CategoryTrendPage checkTitle() {
-        ElementsCollection text = $$(shadowCss("text", "#\\36 2076"));
+        ElementsCollection text = $$(shadowCss("text", trendShadowHost));
         int num = text.size()-2;
         text.get(num).shouldHave(Condition.text("Title"));
-//        return text.get(num).getText();
         return this;
     }
 
     public CategoryTrendPage clickTrendTreePen() {
-        ElementsCollection div = $$(shadowCss("div", "#\\36 2076", "#toolbar"));
+        ElementsCollection div = $$(shadowCss("div", trendShadowHost, "#toolbar"));
         div.get(2).click();
         return this;
     }
@@ -190,8 +190,6 @@ public class CategoryTrendPage {
     public String checkMessageWarning() {
         return messageWarning.getText();
     }
-
-
 
     public CategoryTrendPage windowsClick() {
         this.windows.get(1).click();

@@ -12,13 +12,10 @@ public class PenTrendTest {
     @Test
     @DisplayName("Проверка максимального значения оси Y")
     public void checkMaxY() throws InterruptedException {
-        String page = open(PenPage.URL, PenPage.class)
+        PenPage page = open(PenPage.URL, PenPage.class)
                 .inputMaxY()
                 .windowsClick()
                 .checkMaxY();
-        System.out.println(page);
-        assertEquals("80", page);
-        Thread.sleep(pause);
     }
 
     @Test

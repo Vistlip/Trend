@@ -1,5 +1,6 @@
 package Pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +18,7 @@ public class FormatAxisYPage {
     private ElementsCollection buttons;
     @FindBy(how = How.XPATH, using = ".//ms-window")
     private ElementsCollection windows;
+    String trendShadowHost = "#\\32 06251";
 
     public FormatAxisYPage windowsClick() {
         this.windows.get(1).click();
@@ -38,7 +40,7 @@ public class FormatAxisYPage {
     }
 
     public Boolean checkFormatC() {
-        ElementsCollection td = $$(shadowCss("td", "#\\32 06251", "#legend"));
+        ElementsCollection td = $$(shadowCss("td", trendShadowHost, "#legend"));
         return td.get(2).getText().contains("₽");
     }
 
@@ -49,7 +51,7 @@ public class FormatAxisYPage {
     }
 
     public Boolean checkFormatP() {
-        ElementsCollection td = $$(shadowCss("td", "#\\32 06251", "#legend"));
+        ElementsCollection td = $$(shadowCss("td", trendShadowHost, "#legend"));
         return td.get(2).getText().contains("%");
     }
 
@@ -60,7 +62,7 @@ public class FormatAxisYPage {
     }
 
     public Boolean checkFormatE() {
-        ElementsCollection td = $$(shadowCss("td", "#\\32 06251", "#legend"));
+        ElementsCollection td = $$(shadowCss("td", trendShadowHost, "#legend"));
         return td.get(2).getText().contains("e");
     }
 
@@ -76,7 +78,7 @@ public class FormatAxisYPage {
     }
 
     public int checkDecimalPlaces() {
-        ElementsCollection td = $$(shadowCss("td", "#\\32 06251", "#legend"));
+        ElementsCollection td = $$(shadowCss("td", trendShadowHost, "#legend"));
         String[] splitter = td.get(2).getText().split("\\.");
         System.out.println(splitter[1]);
         int i = splitter[1].length();

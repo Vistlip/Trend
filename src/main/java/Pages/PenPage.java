@@ -1,5 +1,6 @@
 package Pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
@@ -26,6 +27,8 @@ public class PenPage {
     private ElementsCollection inputColor;
     @FindBy(how = How.CLASS_NAME, using = "pcr-save")
     private ElementsCollection saveBackgroundColorButton;
+    String trendShadowHost = "#\\36 4053";
+    String maxValue = "80";
 
     public PenPage windowsClick() {
         this.windows.get(1).click();
@@ -33,13 +36,14 @@ public class PenPage {
     }
 
     public PenPage inputMaxY() {
-        $(shadowCss("input", "#\\36 4452")).setValue("80");
+        $(shadowCss("input", "#\\36 4452")).setValue(maxValue);
         return this;
     }
 
-    public String checkMaxY() {
-        ElementsCollection text = $$(shadowCss("text", "#\\36 4053"));
-        return text.get(4).getText();
+    public PenPage checkMaxY() {
+        ElementsCollection text = $$(shadowCss("text", trendShadowHost));
+        text.get(4).shouldHave(Condition.text(maxValue));
+        return this;
     }
 
 
@@ -49,7 +53,7 @@ public class PenPage {
     }
 
     public String checkMinY() {
-        ElementsCollection text = $$(shadowCss("text", "#\\36 4053"));
+        ElementsCollection text = $$(shadowCss("text", trendShadowHost));
         return text.get(0).getText();
     }
 
@@ -59,7 +63,7 @@ public class PenPage {
     }
 
     public String checkAutoMaxY() {
-        ElementsCollection text = $$(shadowCss("text", "#\\36 4053"));
+        ElementsCollection text = $$(shadowCss("text", trendShadowHost));
         return text.get(5).getText();
     }
 
@@ -69,7 +73,7 @@ public class PenPage {
     }
 
     public int checkTextElement() {
-        ElementsCollection text = $$(shadowCss("text", "#\\36 4053"));
+        ElementsCollection text = $$(shadowCss("text", trendShadowHost));
         return text.size();
     }
 
@@ -84,7 +88,7 @@ public class PenPage {
     }
 
     public Boolean checkMeasureUnit() {
-        ElementsCollection td = $$(shadowCss("td", "#\\36 4053", "#legend"));
+        ElementsCollection td = $$(shadowCss("td", trendShadowHost, "#legend"));
         return td.get(2).getText().contains("m3");
     }
 
@@ -105,7 +109,7 @@ public class PenPage {
     }
 
     public String checkStyleLine() {
-        ElementsCollection path = $$(shadowCss("path", "#\\36 4053"));
+        ElementsCollection path = $$(shadowCss("path", trendShadowHost));
         int pathCount = path.size()-6;
         System.out.println(pathCount);
         String res = path.get(pathCount).getAttribute("stroke-dasharray");
@@ -125,7 +129,7 @@ public class PenPage {
     }
 
     public String checkStyleLineNo() {
-        ElementsCollection path = $$(shadowCss("path", "#\\36 4053"));
+        ElementsCollection path = $$(shadowCss("path", trendShadowHost));
         int pathCount = path.size()-6;
         String res = path.get(pathCount).getAttribute("stroke-opacity");
         return res;
@@ -137,7 +141,7 @@ public class PenPage {
     }
 
     public String checkLineWidth() {
-        ElementsCollection path = $$(shadowCss("path", "#\\36 4053"));
+        ElementsCollection path = $$(shadowCss("path", trendShadowHost));
         int pathCount = path.size()-8;
         System.out.println(pathCount);
         String res = path.get(pathCount).getAttribute("stroke-width");
@@ -161,7 +165,7 @@ public class PenPage {
     }
 
     public String checkPenColor() {
-        ElementsCollection path = $$(shadowCss("path", "#\\36 4053"));
+        ElementsCollection path = $$(shadowCss("path", trendShadowHost));
         int pathCount = path.size()-6;
         System.out.println(pathCount);
         String res = path.get(pathCount).getAttribute("stroke");
@@ -180,7 +184,7 @@ public class PenPage {
     }
 
     public String checkDotType() {
-        ElementsCollection path = $$(shadowCss("path", "#\\36 4053"));
+        ElementsCollection path = $$(shadowCss("path", trendShadowHost));
         int pathCount = path.size()-6;
         System.out.println(pathCount);
         String res = path.get(pathCount).getAttribute("d");
@@ -217,7 +221,7 @@ public class PenPage {
     }
 
     public Boolean checkDotSize() {
-        ElementsCollection path = $$(shadowCss("path", "#\\36 4053"));
+        ElementsCollection path = $$(shadowCss("path", trendShadowHost));
         int pathCount = path.size()-8;
         System.out.println(pathCount);
         String res = path.get(pathCount).getAttribute("transform");
@@ -230,7 +234,7 @@ public class PenPage {
     }
 
     public int checkTextElementsWithoutAxisY() {
-        ElementsCollection text = $$(shadowCss("text", "#\\36 4053"));
+        ElementsCollection text = $$(shadowCss("text", trendShadowHost));
         return text.size();
     }
 
