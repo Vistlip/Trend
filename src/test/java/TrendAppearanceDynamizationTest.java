@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 
 public class TrendAppearanceDynamizationTest {
-    int pause = 5000;
+    int pause = 500;
     @Test
     @DisplayName("Проверка изменения активности тренда")
     public void checkTrendActivity() throws InterruptedException {

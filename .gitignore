@@ -1,3 +1,17 @@
 # Project exclude paths
 /target/
 /build/
+/.allure/allure-2.15.0/bin/allure
+/.allure/allure-2.15.0/bin/allure.bat
+/.allure/allure-2.15.0/config/allure.yml
+/.allure/allure-2.15.0/lib/allure1-model-1.0.jar
+/.allure/allure-2.15.0/lib/allure-commandline-2.15.0.jar
+/.allure/allure-2.15.0/config/allure-cucumber.yml
+/.allure/allure-2.15.0/lib/allure-generator-2.15.0.jar
+/.allure/allure-2.15.0/plugins/jira-plugin/lib/allure-jira-commons-2.15.0.jar
+/.allure/allure-2.15.0/plugins/xray-plugin/lib/allure-jira-commons-2.15.0.jar
+/.allure/allure-2.15.0/config/allure-junit.yml
+/.allure/allure-2.15.0/lib/allure-model-2.15.0.jar
+/.allure/allure-2.15.0/plugins/behaviors-plugin/allure-plugin.yml
+/.allure/allure-2.15.0/plugins/custom-logo-plugin/allure-plugin.yml
+/.allure/allure-2.15.0/plugins/jira-plugin/allure-plugin.yml

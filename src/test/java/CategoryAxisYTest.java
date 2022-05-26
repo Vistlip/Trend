@@ -6,15 +6,16 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.assertEquals;
 
 public class CategoryAxisYTest {
-    int pause = 5000;
+    int pause = 500;
     @Test
     @DisplayName("Проверка толщины делений оси Y")
     public void checkThicknessDivisions() throws InterruptedException {
         String page = open(AxisYPage.URL, AxisYPage.class)
                 .inputThicknessDivisions()
+                .windowsClick()
                 .checkThicknessDivisions();
         System.out.println(page);
-        assertEquals("10", page);
+        assertEquals("8", page);
         Thread.sleep(pause);
     }
 

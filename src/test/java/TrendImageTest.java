@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 
 public class TrendImageTest {
-    int pause = 5000;
+    int pause = 500;
     @Test
     @DisplayName("Проверка замостка 'Заполнение' и 1 изображение")
     public void checkChangeImageFirstAndBGFill() throws InterruptedException {

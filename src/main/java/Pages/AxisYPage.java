@@ -28,14 +28,13 @@ public class AxisYPage {
     }
 
     public AxisYPage inputThicknessDivisions() {
-        $(shadowCss("input", "#\\37 4230")).setValue("10");
+        $(shadowCss("input", "#\\37 4230")).setValue("8");
         return this;
     }
 
     public String checkThicknessDivisions() {
         ElementsCollection path = $$(shadowCss("path", "#\\37 3956"));
-        int pathCount = path.size() - 10;
-        String res = path.get(pathCount).getAttribute("stroke-miterlimit");
+        String res = path.get(30).getAttribute("stroke-width");
         return res;
     }
 
@@ -69,8 +68,7 @@ public class AxisYPage {
     public String checkThicknessAxis() {
         ElementsCollection path = $$(shadowCss("path", "#\\37 3956"));
         System.out.println(path.size());
-        int pathCount = path.size() - 41;
-        String res = path.get(pathCount).getAttribute("stroke-width");
+        String res = path.get(23).getAttribute("stroke-width");
         return res;
     }
 
@@ -92,9 +90,7 @@ public class AxisYPage {
 
     public String checkColorAxis() {
         ElementsCollection path = $$(shadowCss("path", "#\\37 3956"));
-        System.out.println(path.size());
-        int pathCount = path.size() - 35;
-        String res = path.get(pathCount).getAttribute("stroke");
+        String res = path.get(30).getAttribute("stroke");
         return res;
     }
 
@@ -105,10 +101,8 @@ public class AxisYPage {
 
     public String checkLengthAxis() {
         ElementsCollection path = $$(shadowCss("path", "#\\37 3956"));
-        System.out.println(path.size());
-        int pathCount = path.size() - 34;
-        String[] splitter = path.get(pathCount).getAttribute("d").split(" ");
-        System.out.println(path.get(pathCount).getAttribute("d"));
+        String[] splitter = path.get(30).getAttribute("d").split(" ");
+        System.out.println(path.get(30).getAttribute("d"));
         return splitter[4];
     }
 }

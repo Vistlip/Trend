@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class PenTrendTest {
-    int pause = 5000;
+    int pause = 500;
     @Test
     @DisplayName("Проверка максимального значения оси Y")
     public void checkMaxY() throws InterruptedException {

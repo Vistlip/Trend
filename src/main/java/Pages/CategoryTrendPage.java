@@ -1,9 +1,11 @@
 package Pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.selector.ByShadow;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -32,7 +34,7 @@ public class CategoryTrendPage {
     private ElementsCollection buttons;
     @FindBy(how = How.XPATH, using = ".//ms-interval")
     private ElementsCollection interval;
-    @FindBy(how = How.XPATH, using = ".//ms-dtpicker")
+    @FindBy(how = How.XPATH, using = ".//ms-textinput")
     private ElementsCollection dataEnd;
     @FindBy(how = How.XPATH, using = ".//button")
     private ElementsCollection buttonsPopup;
@@ -79,79 +81,49 @@ public class CategoryTrendPage {
         return this;
     }
 
-
-    public CategoryTrendPage clickInterval() {
-        $(ByShadow.cssSelector("input", "#\\33 28002")).click();
-        return this;
-    }
-
-    public CategoryTrendPage inputInterval() {
-        actions().moveToElement(interval.get(0)).sendKeys("5").perform();
-        actions().moveToElement(interval.get(0)).sendKeys(Keys.ENTER).perform();
-        return this;
-    }
-
-    public String checkAutoScroll() {
+    public CategoryTrendPage checkAutoScroll() {
         ElementsCollection div = $$(shadowCss("div", "#\\36 2076", "#toolbar"));
-        return div.get(1).getAttribute("tooltip");
+        div.get(1).shouldHave(Condition.attributeMatching("tooltip", "Остановить автопрокрутку"));
+        return this;
     }
 
 
-    public String checkBackgroundColorTrend() {
+    public CategoryTrendPage checkBackgroundColorTrend() {
         ElementsCollection div = $$(shadowCss("path", "#\\36 2076"));
-        return div.get(0).getAttribute("fill");
-    }
-
-    public CategoryTrendPage clickDataEnd() {
-        this.dataEnd.get(0).click();
+        div.get(0).shouldHave(Condition.attribute("fill", "rgba(1,1,255,1.0)"));
         return this;
     }
 
-    public CategoryTrendPage deleteDataEnd() {
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.BACK_SPACE).perform();
-        return this;
-    }
 
     public CategoryTrendPage inputDataEnd() {
         Date date = new Date();
-        SimpleDateFormat formatForDateNow = new SimpleDateFormat("dd.MM.yyyy HH.mm");
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         String str = formatForDateNow.format(date);
         System.out.println(str);
-        actions().moveToElement(dataEnd.get(0)).sendKeys(str).perform();
-        actions().moveToElement(dataEnd.get(0)).sendKeys(Keys.ENTER).perform();
+        $(ByShadow.cssSelector("input", "#\\33 83056")).setValue(str+":00");
         return this;
     }
 
-    public int checkText() {
-        ElementsCollection text = $$(shadowCss("text", "#\\36 2076"));
-        return text.size();
-    }
-
     public String checkBeginTime() {
+        Date date = new Date();
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
         ElementsCollection text = $$(shadowCss("text", "#\\36 2076"));
-        return text.get(6).getText();
+        return text.get(6).getText() + ";" + text.get(7).getText();
     }
 
-    public String checkEndTime() {
+    public CategoryTrendPage checkEndTime() {
+        Date date = new Date();
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+        String str = formatForDateNow.format(date);
         ElementsCollection text = $$(shadowCss("text", "#\\36 2076"));
-        return text.get(11).getText();
+        text.get(7).shouldHave(Condition.text(str+":00"));
+        return this;
     }
 
     public String checkTrendToolbar() {
         ElementsCollection div = $$(shadowCss("ms-toolbar", "#\\36 2076"));
         return div.get(0).getAttribute("style");
+
     }
 
     public CategoryTrendPage clickTitle() {
@@ -164,10 +136,12 @@ public class CategoryTrendPage {
         return this;
     }
 
-    public String checkTitle() {
+    public CategoryTrendPage checkTitle() {
         ElementsCollection text = $$(shadowCss("text", "#\\36 2076"));
         int num = text.size()-2;
-        return text.get(num).getText();
+        text.get(num).shouldHave(Condition.text("Title"));
+//        return text.get(num).getText();
+        return this;
     }
 
     public CategoryTrendPage clickTrendTreePen() {

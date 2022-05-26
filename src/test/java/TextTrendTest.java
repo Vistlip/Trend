@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.Assert.assertEquals;
 
 public class TextTrendTest {
-    int pause = 5000;
+    int pause = 500;
     @Test
     @DisplayName("Проверка цвета текста")
     public void checkTextColor() throws InterruptedException {

@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class FormatAxisYTest {
-    int pause = 5000;
+    int pause = 500;
 
     @Test
     @DisplayName("Проверка денежного формата")
