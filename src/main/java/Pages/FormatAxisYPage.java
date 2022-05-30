@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import static com.codeborne.selenide.Selectors.shadowCss;
+import static com.codeborne.selenide.Selectors.withTagAndText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class FormatAxisYPage {
@@ -41,6 +42,7 @@ public class FormatAxisYPage {
 
     public Boolean checkFormatC() {
         ElementsCollection td = $$(shadowCss("td", trendShadowHost, "#legend"));
+        System.out.println(td.get(2).getText());
         return td.get(2).getText().contains("₽");
     }
 
@@ -52,6 +54,7 @@ public class FormatAxisYPage {
 
     public Boolean checkFormatP() {
         ElementsCollection td = $$(shadowCss("td", trendShadowHost, "#legend"));
+        System.out.println(td.get(2).getText());
         return td.get(2).getText().contains("%");
     }
 
@@ -63,6 +66,7 @@ public class FormatAxisYPage {
 
     public Boolean checkFormatE() {
         ElementsCollection td = $$(shadowCss("td", trendShadowHost, "#legend"));
+        System.out.println(td.get(2).getText());
         return td.get(2).getText().contains("e");
     }
 
@@ -71,7 +75,7 @@ public class FormatAxisYPage {
         return this;
     }
 
-    public FormatAxisYPage clickFormatF() {
+    public FormatAxisYPage clickFormatF() throws InterruptedException {
         actions().moveToElement(comboboxes.get(0)).sendKeys("f").perform();
         actions().moveToElement(comboboxes.get(0)).sendKeys(Keys.ENTER).perform();
         return this;

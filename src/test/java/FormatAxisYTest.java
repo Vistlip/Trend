@@ -3,11 +3,12 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class FormatAxisYTest {
-    int pause = 500;
+    int pause = 5000;
 
     @Test
     @DisplayName("Проверка денежного формата")
@@ -15,6 +16,7 @@ public class FormatAxisYTest {
         Boolean page = open(FormatAxisYPage.URL, FormatAxisYPage.class)
                 .clickFormat()
                 .clickFormatC()
+                .windowsClick()
                 .clickPause()
                 .checkFormatC();
         System.out.println(page);
@@ -28,10 +30,11 @@ public class FormatAxisYTest {
         Boolean page = open(FormatAxisYPage.URL, FormatAxisYPage.class)
                 .clickFormat()
                 .clickFormatP()
+                .windowsClick()
                 .clickPause()
                 .checkFormatP();
         System.out.println(page);
-        assertTrue(page);
+//        assertTrue(check);
         Thread.sleep(pause);
     }
 
@@ -41,10 +44,11 @@ public class FormatAxisYTest {
         Boolean page = open(FormatAxisYPage.URL, FormatAxisYPage.class)
                 .clickFormat()
                 .clickFormatE()
+                .windowsClick()
                 .clickPause()
                 .checkFormatE();
         System.out.println(page);
-        assertTrue(page);
+//        assertTrue(check);
         Thread.sleep(pause);
     }
 

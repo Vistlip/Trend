@@ -10,14 +10,11 @@ public class TextTrendTest {
     int pause = 500;
     @Test
     @DisplayName("Проверка цвета текста")
-    public void checkTextColor() throws InterruptedException {
-        String page = open(TextTrendPage.URL, TextTrendPage.class)
+    public void checkTextColor() {
+        TextTrendPage page = open(TextTrendPage.URL, TextTrendPage.class)
                 .clickButtonTextColor()
                 .inputColorText()
                 .clickSaveTextColorTrend()
                 .checkTextColor();
-        System.out.println(page);
-        assertEquals("rgba(1,1,255,1.0)", page);
-        Thread.sleep(pause);
     }
 }

@@ -1,13 +1,13 @@
 package Pages;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.selector.ByShadow;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selectors.shadowCss;
+import static com.codeborne.selenide.Selenide.*;
 
 public class AutoCreateAxisDTPage {
     public static final String URL = Urls.AutoCreateAxisDTURL;
@@ -17,9 +17,16 @@ public class AutoCreateAxisDTPage {
     private ElementsCollection windows;
     @FindBy(how = How.XPATH, using = ".//ms-togglebutton")
     private ElementsCollection buttons;
+    String trendShadowHost = "#\\32 80531";
 
-    public AutoCreateAxisDTPage clickAutoCreateAxis() {
-        this.buttons.get(1).click();
+    public AutoCreateAxisDTPage clickButton(int numberButton) {
+        this.buttons.get(numberButton).click();
+        return this;
+    }
+
+    public AutoCreateAxisDTPage checkAxisCount(int axis) {
+        ElementsCollection path = $$(shadowCss("path", trendShadowHost));
+        path.shouldHave(CollectionCondition.size(axis));
         return this;
     }
 }

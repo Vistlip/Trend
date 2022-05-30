@@ -28,33 +28,33 @@ public class PenPage {
     @FindBy(how = How.CLASS_NAME, using = "pcr-save")
     private ElementsCollection saveBackgroundColorButton;
     String trendShadowHost = "#\\36 4053";
-    String maxValue = "80";
 
     public PenPage windowsClick() {
         this.windows.get(1).click();
         return this;
     }
 
-    public PenPage inputMaxY() {
+    public PenPage inputMaxY(String maxValue) {
         $(shadowCss("input", "#\\36 4452")).setValue(maxValue);
         return this;
     }
 
-    public PenPage checkMaxY() {
+    public PenPage checkMaxY(String maxValue) {
         ElementsCollection text = $$(shadowCss("text", trendShadowHost));
         text.get(4).shouldHave(Condition.text(maxValue));
         return this;
     }
 
 
-    public PenPage inputMinY() {
+    public PenPage inputMinY(String minValue) {
         $(shadowCss("input", "#\\36 4466")).setValue("10");
         return this;
     }
 
-    public String checkMinY() {
+    public PenPage checkMinY(String minValue) {
         ElementsCollection text = $$(shadowCss("text", trendShadowHost));
-        return text.get(0).getText();
+        text.get(0).shouldHave(Condition.text(minValue));
+        return this;
     }
 
     public PenPage clickAutoScale() {
@@ -62,9 +62,10 @@ public class PenPage {
         return this;
     }
 
-    public String checkAutoMaxY() {
+    public PenPage checkAutoMaxY() {
         ElementsCollection text = $$(shadowCss("text", trendShadowHost));
-        return text.get(5).getText();
+        text.get(5).shouldHave(Condition.text("50"));
+        return this;
     }
 
     public PenPage clickVisible() {
@@ -108,12 +109,11 @@ public class PenPage {
         return this;
     }
 
-    public String checkStyleLine() {
+    public PenPage checkStyleLine(String dashArray) {
         ElementsCollection path = $$(shadowCss("path", trendShadowHost));
         int pathCount = path.size()-6;
-        System.out.println(pathCount);
-        String res = path.get(pathCount).getAttribute("stroke-dasharray");
-        return res;
+        path.get(pathCount).shouldHave(Condition.attribute("stroke-dasharray", dashArray));
+        return this;
     }
 
     public PenPage clickStyleLineDot() {
@@ -128,11 +128,11 @@ public class PenPage {
         return this;
     }
 
-    public String checkStyleLineNo() {
+    public PenPage checkStyleLineNo() {
         ElementsCollection path = $$(shadowCss("path", trendShadowHost));
         int pathCount = path.size()-6;
-        String res = path.get(pathCount).getAttribute("stroke-opacity");
-        return res;
+        path.get(pathCount).shouldHave(Condition.attribute("stroke-opacity", "0"));
+        return this;
     }
 
     public PenPage inputLineWidth() {
@@ -140,12 +140,11 @@ public class PenPage {
         return this;
     }
 
-    public String checkLineWidth() {
+    public PenPage checkLineWidth() {
         ElementsCollection path = $$(shadowCss("path", trendShadowHost));
         int pathCount = path.size()-8;
-        System.out.println(pathCount);
-        String res = path.get(pathCount).getAttribute("stroke-width");
-        return res;
+        path.get(pathCount).shouldHave(Condition.attribute("stroke-width", "7"));
+        return this;
     }
 
     public PenPage clickButtonPenColor() {
@@ -164,12 +163,11 @@ public class PenPage {
         return this;
     }
 
-    public String checkPenColor() {
+    public PenPage checkPenColor() {
         ElementsCollection path = $$(shadowCss("path", trendShadowHost));
         int pathCount = path.size()-6;
-        System.out.println(pathCount);
-        String res = path.get(pathCount).getAttribute("stroke");
-        return res;
+        path.get(pathCount).shouldHave(Condition.attribute("stroke", "rgba(1,1,255,1.0)"));
+        return this;
     }
 
     public PenPage clickDotType() {
@@ -183,12 +181,11 @@ public class PenPage {
         return this;
     }
 
-    public String checkDotType() {
+    public PenPage checkDotType(String dot) {
         ElementsCollection path = $$(shadowCss("path", trendShadowHost));
         int pathCount = path.size()-6;
-        System.out.println(pathCount);
-        String res = path.get(pathCount).getAttribute("d");
-        return res;
+        path.get(pathCount).shouldHave(Condition.attribute("d", dot));
+        return this;
     }
 
     public PenPage clickDotTypeCircle() {

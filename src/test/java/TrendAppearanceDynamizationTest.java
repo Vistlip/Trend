@@ -49,15 +49,12 @@ public class TrendAppearanceDynamizationTest {
 
     @Test
     @DisplayName("Проверка изменения всплывающей подсказки тренда")
-    public void checkPrompt() throws InterruptedException {
-        String page = open(AppearancePage.URL, AppearancePage.class)
+    public void checkPrompt() {
+        AppearancePage page = open(AppearancePage.URL, AppearancePage.class)
                 .inputClick()
                 .inputPrompt()
                 .windowsClick()
                 .getDataTooltipTrend();
-        System.out.println(page);
-        assertTrue(page.equals("123"));
-        Thread.sleep(pause);
     }
 
     @Test

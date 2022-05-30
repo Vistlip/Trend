@@ -1,5 +1,6 @@
 package Pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.selector.ByShadow;
@@ -133,8 +134,9 @@ public class AppearancePage {
         return this.trend.getAttribute("style");
     }
     //Получение тултипа тренда
-    public String getDataTooltipTrend() {
-        return this.trend.getAttribute("data-tooltip");
+    public AppearancePage getDataTooltipTrend() {
+        trend.shouldHave(Condition.attribute("data-tooltip", "123"));
+        return this;
     }
     //Клик по пустому пространству на окне. Необходим для подтверждения ввода инкрментов и текстого ввода.
     public AppearancePage windowsClick() {

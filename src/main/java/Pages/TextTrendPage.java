@@ -1,5 +1,6 @@
 package Pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -33,9 +34,10 @@ public class TextTrendPage {
         return this;
     }
 
-    public String checkTextColor() {
+    public TextTrendPage checkTextColor() {
         ElementsCollection text = $$(shadowCss("text", "#\\37 5524"));
         int num = text.size()-2;
-        return text.get(num).getAttribute("fill");
+        text.get(num).shouldHave(Condition.attribute("fill", "rgba(1,1,255,1.0)"));
+        return this;
     }
 }
