@@ -7,14 +7,14 @@ import static com.codeborne.selenide.Selenide.*;
 public class AutoCreateAxisRTTest {
     @Test
     @DisplayName("Проверка: Добавление 1 пера, автоматическое создание включено")
-    public void checkAutoCreatingAxisOnAddOnePen() throws InterruptedException {
+    public void checkAutoCreatingAxisOnAddOnePen() {
     AutoCreateAxisRTPage page = open(AutoCreateAxisRTPage.URL, AutoCreateAxisRTPage.class)
             .clickButton(1)
             .checkAxisCount(50);
     }
     @Test
     @DisplayName("Проверка: Добавление 2 перьев, автоматическое создание включено")
-    public void checkAutoCreatingAxisOnAddTwoPen() throws InterruptedException {
+    public void checkAutoCreatingAxisOnAddTwoPen() {
         AutoCreateAxisRTPage page = open(AutoCreateAxisRTPage.URL, AutoCreateAxisRTPage.class)
                 .clickAddChoice()
                 .clickAddRandom()
@@ -28,7 +28,7 @@ public class AutoCreateAxisRTTest {
 
     @Test
     @DisplayName("Проверка: Добавление 3 перьев, автоматическое создание включено")
-    public void checkAutoCreatingAxisOnAddThreePen() throws InterruptedException {
+    public void checkAutoCreatingAxisOnAddThreePen() {
         AutoCreateAxisRTPage page = open(AutoCreateAxisRTPage.URL, AutoCreateAxisRTPage.class)
                 .clickAddChoice()
                 .clickAddRandom()
@@ -46,7 +46,7 @@ public class AutoCreateAxisRTTest {
 
     @Test
     @DisplayName("Проверка: Добавление 2 перьев, автоматическое создание выключено")
-    public void checkAutoCreatingAxisOffAddTwoPen() throws InterruptedException {
+    public void checkAutoCreatingAxisOffAddTwoPen() {
         AutoCreateAxisRTPage page = open(AutoCreateAxisRTPage.URL, AutoCreateAxisRTPage.class)
                 .clickAddChoice()
                 .clickAddConst()

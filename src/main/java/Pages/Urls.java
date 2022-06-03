@@ -12,5 +12,7 @@ public class Urls {
     public static final String AxisYURL = MainPageURL + "?72698";
     public static final String AutoCreateAxisDTURL = MainPageURL + "?280239";
     public static final String AutoCreateAxisRTURL = MainPageURL + "?280142";
-    public static final String AutoCreateAxisURL = MainPageURL + "?279989";
+    public static final String CursorSelectedPositionURL = MainPageURL + "?71587";
+    public static final String TransformURL = MainPageURL + "?268251";
+    public static final String FrameURL = MainPageURL + "?268348";
 }
