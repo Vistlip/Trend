@@ -15,4 +15,7 @@ public class Urls {
     public static final String CursorSelectedPositionURL = MainPageURL + "?71587";
     public static final String TransformURL = MainPageURL + "?268251";
     public static final String FrameURL = MainPageURL + "?268348";
+    public static final String LocationTrendURL = MainPageURL + "?268542";
+    public static final String AlignmentTrendURL = MainPageURL + "?291369";
+    public static final String AxisXURL = MainPageURL + "?72003";
 }
