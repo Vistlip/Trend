@@ -26,6 +26,12 @@ public class AxisXPage {
     private ElementsCollection windows;
     @FindBy(how = How.XPATH, using = ".//ms-combobox")
     private ElementsCollection combobox;
+    @FindBy(how = How.XPATH, using = ".//ms-colorpicker")
+    private ElementsCollection colorButtons;
+    @FindBy(how = How.CLASS_NAME, using = "pcr-result")
+    private ElementsCollection inputColor;
+    @FindBy(how = How.CLASS_NAME, using = "pcr-save")
+    private ElementsCollection saveBackgroundColorButton;
     String trendShadowHost = "#\\37 2100";
     Duration time = Duration.ofSeconds(15);
     String labelX = "Привет";
@@ -108,7 +114,7 @@ public class AxisXPage {
         return this;
     }
 
-    public Boolean checkDateFormat() {
+    public Boolean checkDateFormatDT() {
         Date date = new Date();
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         String str = formatForDateNow.format(date);
@@ -117,4 +123,87 @@ public class AxisXPage {
         return format;
     }
 
+    public AxisXPage inputDataFormatData() {
+        actions().moveToElement(combobox.get(0)).sendKeys("dd.MM.yyyy").perform();
+        actions().moveToElement(combobox.get(0)).sendKeys(Keys.ENTER).perform();
+        return this;
+    }
+
+    public Boolean checkDateFormatData() {
+        Date date = new Date();
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("dd.MM.yyyy");
+        String str = formatForDateNow.format(date);
+        ElementsCollection path = $$(shadowCss("tspan", trendShadowHost));
+        Boolean format = path.get(10).text().contains(str);
+        return format;
+    }
+
+    public AxisXPage inputDataFormatTime() {
+        actions().moveToElement(combobox.get(0)).sendKeys("HH:mm:ss").perform();
+        actions().moveToElement(combobox.get(0)).sendKeys(Keys.ENTER).perform();
+        return this;
+    }
+
+    public Boolean checkDateFormatTime() {
+        Date date = new Date();
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("HH:mm");
+        String str = formatForDateNow.format(date);
+        ElementsCollection path = $$(shadowCss("tspan", trendShadowHost));
+        Boolean format = path.get(10).text().contains(str);
+        return format;
+    }
+
+    public AxisXPage clickButtonColorDivision() {
+        this.colorButtons.get(0).click();
+        return this;
+    }
+
+    //Ввод цветового значения
+    public AxisXPage inputColorDivision() {
+        this.inputColor.get(0).setValue("#0000FF");
+        return this;
+    }
+
+    public AxisXPage clickSaveColorDivision() {
+        this.saveBackgroundColorButton.get(0).click();
+        return this;
+    }
+
+    public AxisXPage checkColorDivision() {
+        ElementsCollection path = $$(shadowCss("path", trendShadowHost));
+        path.get(23).shouldHave(Condition.attribute("stroke", "rgba(1,1,255,1.0)"), time);
+        return this;
+    }
+    public AxisXPage clickButtonColorAxisX() {
+        this.colorButtons.get(1).click();
+        return this;
+    }
+
+    //Ввод цветового значения
+    public AxisXPage inputColorAxisX() {
+        this.inputColor.get(1).setValue("#00FF0B");
+        return this;
+    }
+
+    public AxisXPage clickSaveColorAxisX() {
+        this.saveBackgroundColorButton.get(1).click();
+        return this;
+    }
+
+    public AxisXPage checkColorAxisX() {
+        ElementsCollection path = $$(shadowCss("path", trendShadowHost));
+        path.get(14).shouldHave(Condition.attribute("stroke", "rgba(1,255,12,1.0)"), time);
+        return this;
+    }
+
+    public AxisXPage inputThicknessDivisions() {
+        $(shadowCss("input", "#\\37 2392")).setValue("8");
+        return this;
+    }
+
+    public AxisXPage checkThicknessDivisions() {
+        ElementsCollection path = $$(shadowCss("path", trendShadowHost));
+        path.get(23).shouldHave(Condition.attribute("stroke-width", "8"), time);
+        return this;
+    }
 }

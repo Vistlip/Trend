@@ -18,4 +18,5 @@ public class Urls {
     public static final String LocationTrendURL = MainPageURL + "?268542";
     public static final String AlignmentTrendURL = MainPageURL + "?291369";
     public static final String AxisXURL = MainPageURL + "?72003";
+    public static final String GridURL = MainPageURL + "?268154";
 }

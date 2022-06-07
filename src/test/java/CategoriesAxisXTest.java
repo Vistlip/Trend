@@ -10,7 +10,7 @@ public class CategoriesAxisXTest {
     int pause = 500;
     @Test
     @DisplayName("Проверка: Верхнего отступа оси X")
-    public void checkThicknessDivisions() {
+    public void checkOffsetDivisions() {
         AxisXPage page = open(AxisXPage.URL, AxisXPage.class)
                 .inputTopOffset()
                 .windowsClick()
@@ -58,13 +58,64 @@ public class CategoriesAxisXTest {
     }
 
     @Test
-    @DisplayName("Проверка: Толщины оси Х")
-    public void checkFormat() {
+    @DisplayName("Проверка: Формат DT")
+    public void checkFormatDT() {
         Boolean page = open(AxisXPage.URL, AxisXPage.class)
                 .clickDataFormat()
                 .inputDataFormatDT()
                 .windowsClick()
-                .checkDateFormat();
+                .checkDateFormatDT();
         assertTrue(page);
+    }
+
+    @Test
+    @DisplayName("Проверка: Формат Data")
+    public void checkFormatDataData() {
+        Boolean page = open(AxisXPage.URL, AxisXPage.class)
+                .clickDataFormat()
+                .inputDataFormatData()
+                .windowsClick()
+                .checkDateFormatDT();
+        assertTrue(page);
+    }
+
+    @Test
+    @DisplayName("Проверка: Формат Time")
+    public void checkFormatDataTime() {
+        Boolean page = open(AxisXPage.URL, AxisXPage.class)
+                .clickDataFormat()
+                .inputDataFormatTime()
+                .windowsClick()
+                .checkDateFormatTime();
+        assertTrue(page);
+    }
+
+    @Test
+    @DisplayName("Проверка: Цвет делений")
+    public void checkColorDivision() {
+        AxisXPage page = open(AxisXPage.URL, AxisXPage.class)
+                .clickButtonColorDivision()
+                .inputColorDivision()
+                .clickSaveColorDivision()
+                .checkColorDivision();
+    }
+
+    @Test
+    @DisplayName("Проверка: Цвет оси")
+    public void checkColorAxisX() {
+        AxisXPage page = open(AxisXPage.URL, AxisXPage.class)
+                .clickButtonColorAxisX()
+                .inputColorAxisX()
+                .clickSaveColorAxisX()
+                .checkColorAxisX();
+    }
+
+    @Test
+    @DisplayName("Проверка: Толщины оси Х")
+    public void checkThicknessDivisions() {
+        AxisXPage page = open(AxisXPage.URL, AxisXPage.class)
+                .inputThicknessDivisions()
+                .windowsClick()
+                .checkThicknessDivisions();
     }
 }
