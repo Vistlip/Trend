@@ -1,4 +1,3 @@
-import Pages.FramePage;
 import Pages.LocationTrendPage;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
